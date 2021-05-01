@@ -1,8 +1,10 @@
 <script>
     import {  Link, navigate } from "svelte-routing";
     import {user} from '../stores/user'
+    import {auth} from '../firebase'
 
     const cerrarSesion = () => {
+        auth.signOut()
         user.setUser(null)
         navigate('/', { replace: true })
     }
